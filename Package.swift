@@ -1,9 +1,20 @@
+// swift-tools-version:5.10
+
 import PackageDescription
 
 let package = Package(
     name: "CPcap",
-    providers: [
-      .Apt("libpcap-dev")
+    products: [
+        .library(
+            name: "CPcap",
+            targets: ["CPcap"]
+        )
+    ],
+    targets: [
+        .target(
+            name: "CPcap",
+            path: ".",
+            publicHeadersPath: "include"
+        )
     ]
 )
-
